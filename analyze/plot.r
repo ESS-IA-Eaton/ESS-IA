@@ -1,0 +1,21 @@
+plotFile <- read.csv(file.choose(),header=FALSE,sep=",")
+xTitle <- "Date" # CHANGE
+yTitle <- "Cumulative Cases" # CHANGE
+graphTitle <- "Mean Cumulative Cases Caused by Internal Source" # CHANGE
+startingDate <- as.Date("2020-08-24")
+dates <- seq(startingDate, by="1 day", length.out=(7*17))
+labelDates <- seq(startingDate, by="4 day", length.out=(7*17)/3)
+plot(plotFile[,1]~dates, xaxt = "n", type="l", lwd=2, lty="solid", col="red", xlab="", ylab=yTitle, main=graphTitle)
+lines(plotFile[,2]~dates, type="l", lwd=2, lty="dotted", col="black")
+lines(plotFile[,3]~dates, type="l", lwd=2, lty="dotted", col="black")
+plotFile <- read.csv(file.choose(),header=FALSE,sep=",")
+lines(plotFile[,1]~dates, type="l", lwd=2, lty="solid", col="blue")
+lines(plotFile[,2]~dates, type="l", lwd=2, lty="dotted", col="black")
+lines(plotFile[,3]~dates, type="l", lwd=2, lty="dotted", col="black")
+plotFile <- read.csv(file.choose(),header=FALSE,sep=",")
+lines(plotFile[,1]~dates, type="l", lwd=2, lty="solid", col="green")
+lines(plotFile[,2]~dates, type="l", lwd=2, lty="dotted", col="black")
+lines(plotFile[,3]~dates, type="l", lwd=2, lty="dotted", col="black")
+legend("topleft", legend=c("Mean for 1 Cohort", "Mean for 2 Cohorts", "Mean for 4 Cohorts", "95% Confidence Interval"), lty=c("solid", "solid", "solid", "dotted"), col=c("red", "blue", "green", "black"))
+axis.Date(side = 1, dates, at=labelDates, format = "%b %d", las=2)
+mtext(side = 1, text = xTitle, line = 4)
