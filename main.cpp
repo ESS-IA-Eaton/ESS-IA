@@ -17,13 +17,13 @@ int main() {
     rng_type::result_type randomMain;
     struct fullReport report;
     ofstream file;
-    file.open("cohort" + to_string(::cohortNumber) + "ExternalInfection.txt", std::ios::trunc);
+    file.open("data/cohort" + to_string(::cohortNumber) + "ExternalInfection.txt", std::ios::trunc);
     file.close();
-    file.open("cohort" + to_string(::cohortNumber) + "InternalInfection.txt", std::ios::trunc);
+    file.open("data/cohort" + to_string(::cohortNumber) + "InternalInfection.txt", std::ios::trunc);
     file.close();
-    file.open("cohort" + to_string(::cohortNumber) + "TotalInfection.txt", std::ios::trunc);
+    file.open("data/cohort" + to_string(::cohortNumber) + "TotalInfection.txt", std::ios::trunc);
     file.close();
-    file.open("cohort" + to_string(::cohortNumber) + "TotalInternalInfection.txt", std::ios::trunc);
+    file.open("data/cohort" + to_string(::cohortNumber) + "TotalInternalInfection.txt", std::ios::trunc);
     file.close();
     for (int i=0; i<::iterations; i++) {
         randomMain = rangeMain(rngMain);
